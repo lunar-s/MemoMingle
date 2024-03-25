@@ -5,7 +5,9 @@
 #### Sébastien Croteau
 
 I worked on the following tasks:
+
 1. <https://github.com/lunar-s/MemoMingle> - Create the `github` repository and invited the group.
+2. This is my second task.
 
 #### Charley Liao
 
