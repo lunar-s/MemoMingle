@@ -1,5 +1,5 @@
-Breakdown of work:
+# Breakdown of work:
 
-Sébastien Croteau
+### Sébastien Croteau
 
 I worked on the following tasks:
