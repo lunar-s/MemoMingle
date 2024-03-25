@@ -14,6 +14,12 @@ I worked on the following tasks:
 1. <Insert Some Task Here> In `reminder_controller.js`, worked on update function.
 2. <Insert Some Task Here> In `reminder_controller.js`, worked on delete function.
 
+#### Andrew Hsu
+
+I worked on the following tasks:
+
+1. 
+
 Sources:
 
 1. <https://www.freecodecamp.org/news/javascript-string-to-boolean/> To look for changing string to boolean.
