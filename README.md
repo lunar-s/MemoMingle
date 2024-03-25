@@ -15,6 +15,7 @@ I worked on the following tasks:
 
 1. <Insert Some Task Here> In `reminder_controller.js`, worked on update function.
 2. <Insert Some Task Here> In `reminder_controller.js`, worked on delete function.
+3. Practiced using GitHub Repo in command prompt.
 
 #### Andrew Hsu
 
