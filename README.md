@@ -6,8 +6,8 @@
 
 I worked on the following tasks:
 
-1. <https://github.com/lunar-s/MemoMingle> - Create the `github` repository and invited the group.
-2. This is my second task.
+1. Created the GitHub repository and invited the group.
+2. In `reminder_controller.js`, fixed the delete function.
 
 #### Charley Liao
 
@@ -21,7 +21,7 @@ I worked on the following tasks:
 
 I worked on the following tasks:
 
-1. 
+1.
 
 Sources:
 
