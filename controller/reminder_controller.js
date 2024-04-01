@@ -15,9 +15,13 @@ let remindersController = {
       return reminder.id == reminderToFind;
     });
     if (searchResult != undefined) {
-      res.render("reminder/single-reminder", { reminderItem: searchResult });
+      res.render("reminder/single-reminder", {
+        reminderItem: searchResult,
+      });
     } else {
-      res.render("reminder/index", { reminders: database.cindy.reminders });
+      res.render("reminder/index", {
+        reminders: database.cindy.reminders,
+      });
     }
   },
 
@@ -54,14 +58,8 @@ let remindersController = {
   },
 
   delete: (req, res) => {
-    // Find the reminder to delete
-    let reminderToFind = req.params.id;
-    let searchResult = database.cindy.reminders.find(function (reminder) {
-      return reminder.id == reminderToFind;
-    });
-    // Delete the reminder from the database
-    let index = database.cindy.reminders.indexOf(searchResult);
-    database.cindy.reminders.splice(index, 1);
+    // Splice the offending reminder
+    database.cindy.reminders.splice(req.params.id - 1, 1);
     res.redirect("/reminders");
   },
 };
