@@ -53,7 +53,12 @@ let remindersController = {
     // Update the reminder from the form data
     searchResult.title = req.body.title;
     searchResult.description = req.body.description;
-    searchResult.completed = !!req.body.completed;
+    console.log(req.body.completed)
+    if (req.body.completed === "true") {
+      searchResult.completed = true;
+    } else {
+      searchResult.completed = false;
+    }
     res.redirect("/reminders");
   },
 
