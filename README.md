@@ -21,7 +21,7 @@ I worked on the following tasks:
 
 I worked on the following tasks:
 
-1.
+1. Added second sprint notes at the beginning of `controller/auth_controller.js`.
 
 Sources:
 
