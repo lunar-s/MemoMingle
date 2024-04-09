@@ -1,6 +1,6 @@
 // passport-local auth
 // admin functionality (revoke a session)
-// view, edit, delete reminders for the logged in user
+// view, edit, delete reminders for the logged-in user
 // hide the nav bar if not logged in
 
 // Bonus:
