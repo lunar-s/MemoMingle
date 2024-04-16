@@ -10,9 +10,10 @@ I worked on the following tasks:
 2. In `reminder_controller.js`, fixed the delete function.
 3. Attempted local auth for 2hrs (first attempt)
 4. Attempted local auth for another 2hrs (second attempt)
-5. Implemented local auth successfully (third attempt)
-6. Added ensureAuth for all actions
-7. Users can only view their own reminders
+5. Learn how to use `git branch`
+6. Implemented local auth successfully (third attempt)
+7. Added ensureAuth for all actions
+8. Users can only view their own reminders
 
 #### Charley Liao
 
