@@ -1,5 +1,4 @@
-let database = require("../database").Database;
-let userModel = require("../database").userModel;
+let { database, userModel } = require("../database");
 
 const getUserByEmailIdAndPassword = (email, password) => {
   let user = userModel.findOne(email);
@@ -21,6 +20,8 @@ const getUserById = (id) => {
 function isUserValid(user, password) {
   return user.password === password;
 }
+
+// createUser()
 
 module.exports = {
   getUserByEmailIdAndPassword,
