@@ -8,6 +8,8 @@
 // 2. When a user views a reminder, there should be a banner image related to that reminder on display.
 
 let database = require("../database");
+const userController = require("../controller/user_controller");
+const passport = require("../middleware/passport");
 
 let authController = {
   login: (req, res) => {
@@ -18,14 +20,20 @@ let authController = {
     res.render("auth/register");
   },
 
-  loginSubmit: (req, res) => {
-    // implement later
-    
+  loginSubmit: (req, res, next) => {
+    let email = req.body.email;
+    let password = req.body.password;
+    console.log(
+      userController.getUserByEmailIdAndPassword(email, password)
+    );
+    passport.authenticate("login", {
+      successRedirect: "/reminders",
+      failureRedirect: "/login",
+    });
   },
 
   registerSubmit: (req, res) => {
     // implement later
-    
   },
 };
 
