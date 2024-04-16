@@ -16,20 +16,19 @@ let authController = {
     res.render("auth/login");
   },
 
+  logout: (req, res) => {
+    req.logout(req.user, (err) => {
+      if (err) return next(err);
+      res.redirect("/login");
+    });
+  },
+
   register: (req, res) => {
     res.render("auth/register");
   },
 
   loginSubmit: (req, res, next) => {
-    let email = req.body.email;
-    let password = req.body.password;
-    console.log(
-      userController.getUserByEmailIdAndPassword(email, password)
-    );
-    passport.authenticate("login", {
-      successRedirect: "/reminders",
-      failureRedirect: "/login",
-    });
+    res.redirect("/reminders");
   },
 
   registerSubmit: (req, res) => {

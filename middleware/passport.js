@@ -4,20 +4,17 @@ const user_controller = require("../controller/user_controller");
 
 const localLogin = new LocalStrategy(
   {
-    usernameField: "email", // Overrides for email instead of username, default is username so don't need this dict if want username
+    usernameField: "email",
     passwordField: "password",
   },
   (email, password, done) => {
-    console.log("Local strategy verify cb");
     const user = user_controller.getUserByEmailIdAndPassword(
       email,
       password
     );
-    console.log("Local strategy verify cb");
-    return user // short form if else in ternary
-      ? done(null, user) // create session for user (log them in)
+    return user
+      ? done(null, user)
       : done(null, false, {
-          // don't create a session
           message: "Your login details are not valid. Please try again",
         });
   }
@@ -40,6 +37,6 @@ passport.deserializeUser(function (id, done) {
 });
 
 // passport.use("totp", totpLogin);
-passport.use("login", localLogin);
+passport.use("local", localLogin);
 
 module.exports = passport;
