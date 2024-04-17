@@ -18,8 +18,8 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <% if (user) { %> <%- include ("partials/navbar.ejs") %> <% } %> <%-
-    body %>
+    <% if (user) { %> <%- include ("partials/navbar.ejs", {admin: admin})
+    %> <% } %> <%- body %>
     <script
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
       crossorigin="anonymous"
