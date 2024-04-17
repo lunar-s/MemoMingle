@@ -32,3 +32,13 @@ I worked on the following tasks:
 Sources:
 
 1. <https://www.freecodecamp.org/news/javascript-string-to-boolean/> To look for changing string to boolean.
+
+
+### 01 April 2024 (Updates)
+
+#### Sébastien Croteau
+
+I worked on the following tasks:
+
+1. Created the GitHub repository and invited the group.
+2. In `reminder_controller.js`, fixed the delete function.
