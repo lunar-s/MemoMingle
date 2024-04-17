@@ -15,7 +15,7 @@ module.exports = {
   },
   // if an user is admin, then is directed to admin page
   isAdmin: function (req, res, next) {
-    if (req.user.credentials.role === "admin") {
+    if (req.user.role === "admin") {
       return next();
     }
     res.redirect("/reminders");
