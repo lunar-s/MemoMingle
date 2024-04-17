@@ -7,8 +7,8 @@
 // 1. When a user creates a new reminder, add an option for a "banner keyword".
 // 2. When a user views a reminder, there should be a banner image related to that reminder on display.
 
-let database = require("../database");
-const userController = require("../controller/user_controller");
+let { database } = require("../database");
+const { createUser } = require("../controller/user_controller");
 const passport = require("../middleware/passport");
 
 let authController = {
@@ -24,15 +24,34 @@ let authController = {
   },
 
   register: (req, res) => {
-    res.render("auth/register");
+    res.render("auth/register", { message: null });
   },
 
   loginSubmit: (req, res, next) => {
     res.redirect("/reminders");
   },
-
+  // createUser()
   registerSubmit: (req, res) => {
-    // implement later
+    let email = req.body.email;
+    let password = req.body.password;
+    createUser(res, email, password);
+  },
+
+  adminDash: (req, res, next) => {
+    store = req.sessionStore;
+    store.all(function (err, sessions) {
+      for (const session in sessions) {
+        console.log(sessions.passport);
+      }
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("admin", {
+          user: req.user,
+          sessions: sessions,
+        });
+      }
+    });
   },
 };
 
