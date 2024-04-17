@@ -29,8 +29,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(ejsLayouts);
+// Passes the user variable to all views, if authenticated then shows navbar
+app.use(function (req, res, next) {
+  if (req.isAuthenticated()) {
+    res.locals.user = req.user;
+  } else res.locals.user = null;
+  next();
+});
 
+app.use(ejsLayouts);
 app.set("view engine", "ejs");
 
 // Routes start here
