@@ -30,10 +30,15 @@ app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 
 // Passes the user variable to all views, if authenticated then shows navbar
-app.use(function (req, res, next) {
+// If role admin, then show admin button in navbar
+app.use((req, res, next) => {
   if (req.isAuthenticated()) {
     res.locals.user = req.user;
-  } else res.locals.user = null;
+    res.locals.admin = req.user.role;
+  } else {
+    res.locals.user = null;
+    res.locals.admin = null;
+  }
   next();
 });
 
@@ -62,11 +67,25 @@ app.post(
   reminderController.delete
 );
 
-// 👌 Ignore for now
+// Register
 app.get("/register", authController.register);
+// Login
 app.get("/login", forwardAuthenticated, authController.login);
+// Logout
 app.get("/logout", ensureAuthenticated, authController.logout);
+
+// Admin Dashboard
+app.get(
+  "/admin/dashboard",
+  ensureAuthenticated,
+  isAdmin,
+  authController.adminDash
+);
+
+//Register post
 app.post("/register", authController.registerSubmit);
+
+// Login post
 app.post(
   "/login",
   passport.authenticate("local", {
@@ -74,6 +93,21 @@ app.post(
   }),
 
   authController.loginSubmit
+);
+
+// Sessione revoking
+app.post(
+  "/admin/revoke-session/:sid",
+  ensureAuthenticated,
+  isAdmin,
+  (req, res) => {
+    store = req.sessionStore;
+    store.destroy(req.params.sid, function (err) {
+      if (err) {
+        console.log(err);
+      } else res.redirect("/admin");
+    });
+  }
 );
 
 app.listen(3001, function () {
