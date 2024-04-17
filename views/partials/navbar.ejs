@@ -15,6 +15,9 @@
     <div class="navbar-nav">
       <a class="nav-item nav-link" href="/reminders">Reminder List</a>
       <a class="nav-item nav-link" href="/reminder/new">Create</a>
+      <% if (admin) { %>
+      <a class="nav-item nav-link" href="/admin/dashboard">Admin</a>
+      <% } %>
       <a href="/logout" class="nav-item nav-link">Logout</a>
     </div>
   </div>
