@@ -1,0 +1,13 @@
+<h1 class="mt-4">Admin Dashboard</h1>
+<p class="lead mb-3">Welcome <%= user.name %></p>
+<p>Current Active Sessions:</p>
+<% for (const session in sessions) { %>
+<!-- <a href="/admin/revoke-session/<%= session %>">Revoke Session</a> -->
+<p>SessionID: <%= session %></p>
+<p>UserID: <%= sessions[session].passport.user %></p>
+<form method="POST" action="/admin/revoke-session/<%= session %>">
+  <button class="btn btn-outline-danger" type="submit">
+    Revoke Session
+  </button>
+</form>
+<% } %>
