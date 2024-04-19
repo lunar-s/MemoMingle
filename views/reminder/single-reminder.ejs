@@ -1,11 +1,24 @@
 <div class="container">
   <h1 class="page-header">Reminders</h1>
 
+    <style>
+    img.a {
+      display:block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 75%;
+      height: 400px;
+      object-fit: cover;;
+    }
+    </style>
+
     <ul class="list-group">
       <li class="list-group-item">
-        <img src="<%= imageUrl %>" width="300" height="300">
+        <% if (imageUrl) { %>
+          <img src="<%= imageUrl %>" class="a">
+        <% } %>
         <h3><strong><%= reminderItem.title %>: </strong></h3>
-        <h4><%= reminderItem.description %></h4>
+        <h6><%= reminderItem.description %></h6>
         <h4>Completed:
           <% if (reminderItem.completed == true) { %>
             <span class="label label-success">True</span>

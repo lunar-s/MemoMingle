@@ -104,3 +104,13 @@ Sources:
 
 #### Andrew Hsu
 1. Continued working on the Banner for the Bonus mark.
+
+---
+
+### 19 April 2024 (Updates)
+
+#### Charley Liao
+1. Debugged and Worked on the Banner for the bonus mark.
+    - `Adjusted the passport.js`
+    - `single-reminder.ejs`
+2. Edited the `edit.ejs` to incorporate changing banner keyword.
