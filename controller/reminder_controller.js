@@ -17,7 +17,7 @@ let remindersController = {
       return reminder.id == reminderToFind;
     });
     if (searchResult != undefined) {
-      getImage(searchResult.description)
+      getImage(searchResult.bannerKeyword)
         .then((url) => {
           res.render("reminder/single-reminder", {
               reminderItem: searchResult,
@@ -25,9 +25,6 @@ let remindersController = {
           });
         })
         .catch((err) => console.log(err))
-      // res.render("reminder/single-reminder", {
-      //   reminderItem: searchResult,
-      // });
     } else {
       res.render("reminder/index", {
         reminders: req.user.reminders,
@@ -40,6 +37,7 @@ let remindersController = {
       id: req.user.reminders.length + 1,
       title: req.body.title,
       description: req.body.description,
+      bannerKeyword: req.body.bannerKeyword,
       completed: false,
     };
     req.user.reminders.push(reminder);
@@ -80,7 +78,6 @@ let remindersController = {
 
 async function getImage(keyword) {
   const url = `https://api.unsplash.com/search/photos?client_id=${accessKey}&query=` + keyword;
-  console.log(url);
   const res = await fetch(url);
   const data = await res.json();
   return data.results[0].urls.regular;
