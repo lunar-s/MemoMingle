@@ -10,7 +10,7 @@ let database = [
         id: 1,
         title: "Grocery shopping",
         description: "Buy milk and bread from safeway",
-        bannerKeyword: "Safeway",
+        bannerKeyword: "Milk",
         completed: false,
       },
     ],
