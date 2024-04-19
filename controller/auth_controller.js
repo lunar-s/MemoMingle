@@ -40,10 +40,7 @@ let authController = {
 
   adminDash: (req, res, next) => {
     store = req.sessionStore;
-    store.all(function (err, sessions) {
-      for (const session in sessions) {
-        console.log(sessions.passport);
-      }
+    store.all((err, sessions) => {
       if (err) {
         console.log(err);
       } else {
@@ -52,6 +49,15 @@ let authController = {
           sessions: sessions,
         });
       }
+    });
+  },
+
+  adminRevokeSession: (req, res) => {
+    store = req.sessionStore;
+    store.destroy(req.params.sid, (err) => {
+      if (err) {
+        console.log(err);
+      } else res.redirect("/admin/dashboard");
     });
   },
 };

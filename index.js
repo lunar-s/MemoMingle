@@ -49,7 +49,11 @@ app.set("view engine", "ejs");
 app.get("/reminders", ensureAuthenticated, reminderController.list);
 app.get("/reminder/new", ensureAuthenticated, reminderController.new);
 app.get("/reminder/:id", ensureAuthenticated, reminderController.listOne);
-app.get("/reminder/:id/edit", ensureAuthenticated, reminderController.edit);
+app.get(
+  "/reminder/:id/edit",
+  ensureAuthenticated,
+  reminderController.edit
+);
 app.post("/reminder/", ensureAuthenticated, reminderController.create);
 // ⭐ Implement these two routes below!
 app.post(
@@ -91,19 +95,12 @@ app.post(
   authController.loginSubmit
 );
 
-// Sessione revoking
+// Session revoking
 app.post(
   "/admin/revoke-session/:sid",
   ensureAuthenticated,
   isAdmin,
-  (req, res) => {
-    store = req.sessionStore;
-    store.destroy(req.params.sid, function (err) {
-      if (err) {
-        console.log(err);
-      } else res.redirect("/admin/dashboard");
-    });
-  }
+  authController.adminRevokeSession
 );
 
 app.listen(3001, function () {
