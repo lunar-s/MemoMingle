@@ -86,7 +86,6 @@ Sources:
 ### 10 April 2024 (Updates)
 
 #### Sébastien Croteau
-
 1. Continued implementation of Local Auth.
     - _Successful_ Implementation
 2. Added ensureAuth for all actions.
