@@ -1,4 +1,6 @@
 let database = require("../database");
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const { accessKey } = require("../access_key");
 
 let remindersController = {
   list: (req, res) => {
@@ -15,9 +17,17 @@ let remindersController = {
       return reminder.id == reminderToFind;
     });
     if (searchResult != undefined) {
-      res.render("reminder/single-reminder", {
-        reminderItem: searchResult,
-      });
+      getImage(searchResult.description)
+        .then((url) => {
+          res.render("reminder/single-reminder", {
+              reminderItem: searchResult,
+              imageUrl: url
+          });
+        })
+        .catch((err) => console.log(err))
+      // res.render("reminder/single-reminder", {
+      //   reminderItem: searchResult,
+      // });
     } else {
       res.render("reminder/index", {
         reminders: req.user.reminders,
@@ -67,5 +77,13 @@ let remindersController = {
     res.redirect("/reminders");
   },
 };
+
+async function getImage(keyword) {
+  const url = `https://api.unsplash.com/search/photos?client_id=${accessKey}&query=` + keyword;
+  console.log(url);
+  const res = await fetch(url);
+  const data = await res.json();
+  return data.results[0].urls.regular;
+}
 
 module.exports = remindersController;
