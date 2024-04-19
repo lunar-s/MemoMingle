@@ -24,7 +24,8 @@ let authController = {
   },
 
   register: (req, res) => {
-    res.render("auth/register", { message: null });
+    const email = req.query.email;
+    res.render("auth/register", { message: null, email: email });
   },
 
   loginSubmit: (req, res, next) => {
