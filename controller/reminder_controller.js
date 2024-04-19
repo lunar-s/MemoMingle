@@ -1,6 +1,10 @@
+const dotenv = require('dotenv')
+dotenv.config();
+const accessKey = process.env.ACCESS_KEY;
+
 let database = require("../database");
 const fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
-const { accessKey } = require("../access_key");
+// const { accessKey } = require("../access_key");
 
 let remindersController = {
     list: (req, res) => {
