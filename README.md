@@ -22,7 +22,7 @@ Sources:
 
 ---
 
-### 01 April 2024 (Updates)
+### 01 April 2024 (Second Sprint Start)
 
 #### Sébastien Croteau
 1. Created the GitHub repository and invited the group.
@@ -39,7 +39,7 @@ Sources:
 
 ---
 
-### 06 April 2024 (Updates)
+### 06 April 2024 (Second Sprint)
 
 #### Sébastien Croteau
 1. Begin the implementation of Local Auth.
@@ -59,7 +59,7 @@ Sources:
 
 ---
 
-### 07 April 2024 (Updates)
+### 07 April 2024 (Second Sprint)
 
 > **What we noticed:**
 >
@@ -83,7 +83,7 @@ Sources:
 
 ---
 
-### 10 April 2024 (Updates)
+### 10 April 2024 (End Second Sprint, Start Third Sprint)
 
 #### Sébastien Croteau
 1. Continued implementation of Local Auth.
@@ -100,17 +100,21 @@ Sources:
 
 ---
 
-### 13 April 2024 (Updates)
+### 13 April 2024 (Third Sprint)
 
 #### Andrew Hsu
 1. Continued working on the Banner for the Bonus mark.
 
 ---
 
-### 19 April 2024 (Updates)
+### 19 April 2024 (End of Third Sprint)
 
 #### Charley Liao
 1. Debugged and Worked on the Banner for the bonus mark.
     - `Adjusted the passport.js`
     - `single-reminder.ejs`
 2. Edited the `edit.ejs` to incorporate changing banner keyword.
+3. Implemented the `.env` into `reminder_controller.js`
+
+#### Andrew Hsu
+1. Implemented the `.env` into `reminder_controller.js`
