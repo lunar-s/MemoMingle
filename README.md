@@ -102,6 +102,9 @@ Sources:
 
 ### 13 April 2024 (Third Sprint)
 
+#### Sébastien Croteau
+1. _(Extra)_ Worked on adding the sign-up/registration page.
+
 #### Andrew Hsu
 1. Continued working on the Banner for the Bonus mark.
 
